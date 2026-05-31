@@ -1,2 +1,279 @@
-cd username.github.io
-echo "Hello World" > index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chloe Partrick</title>
+<meta name="description" content="Chloe Partrick — people analytics practitioner and graduate researcher in machine learning, data privacy, and applied analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e1116;
+    --bg-soft: #151a21;
+    --fg: #e6e9ee;
+    --muted: #8b95a4;
+    --line: #232a34;
+    --accent: #7cc4f5;
+    --accent-dim: #3a6486;
+    --max: 720px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Sora', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(124,196,245,0.07), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(124,196,245,0.05), transparent 35%);
+  }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  /* Header */
+  header { padding: 120px 0 70px; }
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 26px;
+  }
+  .lede {
+    font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+    color: var(--fg);
+    max-width: 560px;
+    font-weight: 300;
+  }
+  .lede .em { color: var(--accent); font-weight: 400; }
+
+  /* Links row */
+  .links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+  }
+  .links a {
+    color: var(--fg);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+  }
+  .links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* Sections */
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  section p { color: var(--fg); max-width: 620px; }
+  section p + p { margin-top: 16px; }
+
+  /* Interests list */
+  ul.interests { list-style: none; }
+  ul.interests li {
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  ul.interests li:last-child { border-bottom: none; }
+  ul.interests .idx {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent-dim);
+    min-width: 32px;
+  }
+
+  /* Projects */
+  .project {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 24px;
+    margin-bottom: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg-soft);
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .project:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+  .project h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .project p { color: var(--muted); font-size: 0.95rem; }
+  .project .tags {
+    margin-top: 14px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .project .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+  .project .arrow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    transition: all 0.25s ease;
+  }
+  .project:hover .arrow { color: var(--accent); transform: translate(3px, -3px); }
+
+  footer {
+    padding: 60px 0 80px;
+    border-top: 1px solid var(--line);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* Entrance animation */
+  .reveal { opacity: 0; transform: translateY(16px); animation: rise 0.7s ease forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.15s; }
+  .d3 { animation-delay: 0.25s; }
+  .d4 { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow reveal d1">Chloe Partrick</div>
+      <h1 class="reveal d2">People analytics,<br>privacy &amp; machine learning.</h1>
+      <p class="lede reveal d3">
+        Practitioner and graduate researcher working at the intersection of
+        <span class="em">machine learning</span>, <span class="em">data privacy</span>,
+        and <span class="em">applied analytics</span>. M.S. student in Data Science &amp;
+        Business Analytics at UNC Charlotte.
+      </p>
+      <div class="links reveal d4">
+        <a href="https://www.linkedin.com/in/chloepartrick/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/chloepar" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </header>
+
+    <section>
+      <div class="label">About</div>
+      <p>
+        My research centers on privacy threats in large language models — extraction,
+        inference, and countermeasures — alongside applied people-analytics work in industry.
+        I'm interested in how privacy risks emerge from real systems and what practical
+        defenses look like when those systems are deployed at scale.
+      </p>
+    </section>
+
+    <section>
+      <div class="label">Research Interests</div>
+      <ul class="interests">
+        <li><span class="idx">01</span><span>LLM security &amp; privacy — personal information extraction, membership inference</span></li>
+        <li><span class="idx">02</span><span>AI ethics and the governance of ML systems</span></li>
+        <li><span class="idx">03</span><span>Applied people / workforce analytics</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="label">Selected Work</div>
+
+      <a class="project" href="https://github.com/chloepar/LLM-Based-Personal-Profile-Extraction" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <h3>LLM-Based Personal Profile Extraction</h3>
+        <p>Evaluating personal-information extraction from LLMs and countermeasures, extending Liu et al. (USENIX Security '25). Built an extraction and evaluation pipeline against a ground-truth dataset.</p>
+        <div class="tags">
+          <span class="tag">LLM privacy</span>
+          <span class="tag">Python</span>
+          <span class="tag">evaluation</span>
+        </div>
+      </a>
+
+      <a class="project" href="https://github.com/chloepar/Final_CMPD_Traffic_Stops_CPartrick" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <h3>CMPD Traffic Stops — Equity Analysis</h3>
+        <p>Interactive Streamlit application analyzing Charlotte-Mecklenburg Police Department traffic stops, searches, use of force, and contraband rates against city census demographics to surface disparities across ethnic groups.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">civic data</span>
+        </div>
+      </a>
+
+      <a class="project" href="https://github.com/chloepar/Computer_Vision_Dog_Training_DSBA6156" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <h3>Dog Pose Classification — Computer Vision</h3>
+        <p>Computer vision model that recognizes dog positions (sit, stand, lay down) from images, trained on a labeled pose dataset toward an automated dog-training application.</p>
+        <div class="tags">
+          <span class="tag">computer vision</span>
+          <span class="tag">deep learning</span>
+          <span class="tag">Python</span>
+        </div>
+      </a>
+
+      <a class="project" href="https://github.com/chloepar/Stack_Overflow_Survey_Exploration_DSBA6211" target="_blank" rel="noopener">
+        <span class="arrow">↗</span>
+        <h3>Stack Overflow Developer Survey Exploration</h3>
+        <p>Exploratory data analysis of Stack Overflow annual developer survey data (2011–2025), spanning data cleaning, processing, and analysis of trends across the developer population.</p>
+        <div class="tags">
+          <span class="tag">EDA</span>
+          <span class="tag">pandas</span>
+          <span class="tag">data viz</span>
+        </div>
+      </a>
+    </section>
+
+    <footer>
+      <span>© 2026 Chloe Partrick</span>
+      <span><a href="https://github.com/chloepar" target="_blank" rel="noopener">github.com/chloepar</a></span>
+    </footer>
+  </div>
+</body>
+</html>
